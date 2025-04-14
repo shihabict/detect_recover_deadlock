@@ -1,0 +1,13 @@
+digraph {
+	rankdir=LR
+	P0 [color=lightblue shape=ellipse style=filled]
+	P1 [color=lightblue shape=ellipse style=filled]
+	R0 [color=lightgreen shape=box style=filled]
+	R1 [color=lightgreen shape=box style=filled]
+	R2 [color=lightgreen shape=box style=filled]
+	R3 [color=lightgreen shape=box style=filled]
+	P0 -> R1
+	P1 -> R0
+	R0 -> P0
+	R1 -> P1
+}

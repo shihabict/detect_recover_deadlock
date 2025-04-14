@@ -13,6 +13,8 @@ deadenv/
 # Cache files
 .cache/
 *.log
+*.png
+
 .idea/
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/

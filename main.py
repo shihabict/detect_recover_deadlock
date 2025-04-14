@@ -18,10 +18,10 @@ env.request_resource("P0", "R0")
 env.request_resource("P1", "R1")
 
 # Induce deadlock scenario
-# env.request_resource("P0", "R2")  # P0 now waits for R1
-# env.request_resource("P1", "R3")  # P1 now waits for R0
-env.request_resource("P0", "R2")
-env.request_resource("P1", "R0")
+env.request_resource("P0", "R1")  # P0 now waits for R1
+env.request_resource("P1", "R0")  # P1 now waits for R0
+# env.request_resource("P0", "R2")
+# env.request_resource("P1", "R0")
 
 
 # build graph
@@ -41,4 +41,11 @@ if has_deadlock:
     print("Involved Nodes:", involved)
 else:
     print("\n✅ No Deadlock Detected.")
+
+# Graph Visualization
+from visualization.visualizer import RAGVisualizer
+
+visualizer = RAGVisualizer(rag)
+visualizer.draw(filename='rag_output')  # Will generate rag_output.png
+print(0)
 
