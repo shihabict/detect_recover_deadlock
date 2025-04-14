@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+deadenv/
+
+# Environment variables
+.env
+
+# Python egg info
+*.egg-info/
+
+# Cache files
+.cache/
+*.log
+.idea/
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
