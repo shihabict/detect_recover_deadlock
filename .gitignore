@@ -14,6 +14,7 @@ deadenv/
 .cache/
 *.log
 *.png
+*.pdf
 
 .idea/
 # Jupyter Notebook checkpoints
