@@ -91,11 +91,16 @@ env = Environment()
 # Add 2 processes and 2 resources
 env.add_process(0, priority=2)
 env.add_process(1, priority=3)
+# env.add_process(2, priority=3)
 
 env.add_resource("R0")
 env.add_resource("R1")
 env.add_resource("R2")
 env.add_resource("R3")
+env.add_resource("R4")
+# env.add_resource("R5")
+# env.add_resource("R6")
+# env.add_resource("R7")
 
 # Step 2: Create allocation & wait that causes deadlock
 # P0 gets R0, then requests R1
@@ -103,6 +108,12 @@ env.request_resource(0, "R0")
 env.request_resource(0,"R2")
 env.request_resource(0,"R3")
 env.request_resource(1, "R1")
+# env.request_resource(2, "R4")
+# env.request_resource(2, "R5")
+# env.request_resource(1, "R6")
+# env.request_resource(2, "R7")
+# env.request_resource(2, "R6")
+
 
 # P1 gets R1, then requests R0
 env.request_resource(0, "R1")
@@ -122,7 +133,7 @@ if has_deadlock:
 
     rag = builder.build_rag()
     visualizer = RAGVisualizer(rag)
-    visualizer.draw(filename='rag_before_suspension')
+    visualizer.draw(filename='rag_before_suspension_case3')
 
     # Step 4: Suspend one of the deadlocked processes
     recovery = RecoveryManager(env)
@@ -133,7 +144,7 @@ if has_deadlock:
     # Step 5: Visualize RAG after suspension
     rag = builder.build_rag()
     visualizer = RAGVisualizer(rag)
-    visualizer.draw(filename='rag_after_suspension')
+    visualizer.draw(filename='rag_after_suspension_case3')
 
     # Step 6: Manually release a resource to test retry mechanism
     env.release_resource(0, "R0")
@@ -146,7 +157,7 @@ if has_deadlock:
 
     # Step 9: Visualize final state
     rag = builder.build_rag()
-    visualizer.draw(filename='rag_final_restored')
+    visualizer.draw(filename='rag_final_restored_case3')
 else:
     logger.info("✅ No Deadlock Detected.")
     visualizer = RAGVisualizer(rag)
