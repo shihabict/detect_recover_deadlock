@@ -138,5 +138,5 @@ After P0 completes, P1 is restored. P2 was never interrupted.
 ## Author and Credits
 
 Developed by **Md. Shihab Uddin**  
-📚 Course: Operating Systems 
+📚 Course: Operating Systems <br>
 🎓 University of Alabama in Huntsville
