@@ -67,7 +67,7 @@ Suspended processes are monitored:
 - When all the resources they previously held and requested become available, they are restored from the checkpoint and resume execution
 
 
-**## How to Run the Project**
+## How to Run the Project
 
 ### 🔧 Requirements
 
