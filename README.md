@@ -45,3 +45,71 @@ Once a resource is released:
 ### 4. Process Restoration
 Suspended processes are monitored:
 - When all the resources they previously held and requested become available, they are restored from the checkpoint and resume execution
+
+
+**## How to Run the Project**
+
+### 🔧 Requirements
+
+- Python 3.10 or higher
+- pip
+- Graphviz (for visualization)
+- Required Python packages:
+  - `networkx`
+  - `graphviz`
+  - `matplotlib` (optional for additional plotting)
+
+### 📦 Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/deadlock-checkpointing.git
+cd deadlock-checkpointing
+```
+2. Create a virtual environment and install requirements
+```bash
+./shells/install.sh
+```
+3. Running a Simulation
+```bash
+python main.py
+```
+## Visual Walkthroughs
+
+### 🧪 Example 1: Two Processes, Simple Deadlock
+
+**Step 1: Deadlock Detected**  
+P0 and P1 are in a cycle:  
+- P0 holds R0, requests R1  
+- P1 holds R1, requests R0
+
+![Deadlock Detected](images/example1_step1.png)
+
+**Step 2: Suspension and Smart Reassignment**  
+P0 is suspended. R0 is released and reassigned to P1.
+
+![Suspension and Reassignment](images/example1_step2.png)
+
+**Step 3: Suspended Process Restored**  
+Once R1 is free, P0 is restored and system recovers.
+
+![Restored](images/example1_step3.png)
+
+---
+
+### 🧪 Example 2: Three Processes, Isolated Suspension
+
+**Step 1: Deadlock Detected**  
+P0 and P1 are deadlocked. P2 is active but unaffected.
+
+![Deadlock Detected](images/example2_step1.png)
+
+**Step 2: Suspension and Smart Reassignment**  
+P1 is suspended. Held resource is reassigned to P0.
+
+![Suspension and Reassignment](images/example2_step2.png)
+
+**Step 3: Suspended Process Restored**  
+After P0 completes, P1 is restored. P2 was never interrupted.
+
+![Restored](images/example2_step3.png)
