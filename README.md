@@ -22,6 +22,26 @@ The simulation uses a Resource Allocation Graph (RAG) to detect deadlocks, relea
 ## System Architecture
 
 The system is structured around modular components that simulate how deadlocks are handled in operating systems. Below is a high-level view of how the components interact:
+```bash
+detect_recover_deadlock/
+├── core/ 
+│ ├── environment.py
+│ ├── process.py
+│ ├── resource.py
+│ └── graph_builder.py
+├── detection/
+│ └── detector.py
+├── recovery/ 
+│ └── recovery.py
+├── visualization/
+│ └── visualizer.py
+├── utils/
+│ └── logger.py
+├── main.py
+├── requirements.txt
+├── README.md
+└── output_images/
+```
 
 ## How It Works
 
@@ -91,7 +111,7 @@ P0 is suspended. R0 is released and reassigned to P1.
 ![Suspension and Reassignment](output_images/rag_after_suspension_case2.png)
 
 **Step 3: Suspended Process Restored**  
-Once R1 is free, P0 is restored and system recovers.
+Once R1 is free, P0 is restored, and the system recovers.
 
 ![Restored](output_images/rag_final_restored_case2.png)
 
@@ -113,3 +133,10 @@ P1 is suspended. Held resource is reassigned to P0.
 After P0 completes, P1 is restored. P2 was never interrupted.
 
 ![Restored](output_images/rag_final_restored_case4.png)
+
+
+## Author and Credits
+
+Developed by **Md. Shihab Uddin**  
+📚 Course: Operating Systems 
+🎓 University of Alabama in Huntsville
