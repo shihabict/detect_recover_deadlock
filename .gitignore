@@ -13,7 +13,6 @@ deadenv/
 # Cache files
 .cache/
 *.log
-*.png
 *.pdf
 
 .idea/
